@@ -1,0 +1,4 @@
+1.should use minim library for sound clips (used for record function)
+2.pls install leap motion library before using leap motion
+3.integrate leap motion with final interface
+4.try to experiment with leap motion "touching the chime"

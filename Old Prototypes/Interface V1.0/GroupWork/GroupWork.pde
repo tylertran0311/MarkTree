@@ -61,8 +61,8 @@ void draw()
   n=3;
   for(int i=0;i<10;i++)
   {
-    setGradient(100+d,200,x/2/5*2,n*x,black,white);
-    setGradient(100+x/2/5*3+d,200,x/2/5*2,n*x,white,black);
+    //setGradient(100+d,200,x/2/5*2,n*x,black,white);
+    //setGradient(100+x/2/5*3+d,200,x/2/5*2,n*x,white,black);
 
     n=n-0.2;
     d=d+100;
