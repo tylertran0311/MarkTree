@@ -26,15 +26,15 @@ float chimeWidth[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
 float chimeHeight[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 
 float x= 100;
-final float y = height;
-final int W=1150;
-final int H=600;
-final int BARW=950;
-final int BARH=50;
-final int RECORDX=750;
-final int Y=500;
-final int PLAYX=750+150;
-final int maxAmount = 18; // defines the amount of chimes (can have more chimes that appear offscreen though
+float y = height;
+int W=1150;
+int H=600;
+int BARW=950;
+int BARH=50;
+int RECORDX=750;
+int Y=500;
+int PLAYX=750+150;
+int maxAmount = 18; // defines the amount of chimes (can have more chimes that appear offscreen though
 int chimeNumber[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 
 
@@ -71,7 +71,7 @@ void draw()
 {
 
 
-
+  background(255);
 
 
   float m=0.5; //change this to move chimes across the width of the screen
