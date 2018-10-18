@@ -12,7 +12,7 @@
     //Creates echo sound effect when interacted
   TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
@@ -20,7 +20,7 @@
  
    //output player
      Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
       g.addInput(player);
       p.addInput(out);
@@ -36,7 +36,7 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
@@ -44,7 +44,7 @@
  
 
      Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -59,14 +59,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
        Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -81,13 +81,13 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
      Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -102,14 +102,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
       Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -124,14 +124,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -146,14 +146,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
          Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -168,14 +168,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
      Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -190,14 +190,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -212,14 +212,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -234,14 +234,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -255,14 +255,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -277,14 +277,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -299,14 +299,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -320,14 +320,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -342,14 +342,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -364,14 +364,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -386,14 +386,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -408,14 +408,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -430,14 +430,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -452,14 +452,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -474,14 +474,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -496,14 +496,14 @@
     player.setRate(rate);
     TapIn in = new TapIn(ac, 1000);
   TapOut out = new TapOut(ac, in, 150);
-  Gain gDelay = new Gain(ac, 2, 0.8);
+  beads.Gain gDelay = new beads.Gain(ac, 2, 0.8);
   gDelay.addInput(out);
   in.addInput(gDelay);
   in.addInput(player);
  
  
         Panner p=new Panner(ac,2);
-     Gain g=new Gain (ac,2,0.5);
+     beads.Gain g=new beads.Gain (ac,2,0.5);
      g.addInput(p);
   g.addInput(player);
   p.addInput(out);
@@ -516,7 +516,7 @@
  
   AudioContext ac = new AudioContext();  
   SamplePlayer player = new SamplePlayer(ac, SampleManager.sample("C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/glissando high to low.wav"));
-  Gain g = new Gain(ac, 1, 1);
+  beads.Gain g = new beads.Gain(ac, 1, 1);
   g.addInput(player);    
   ac.out.addInput(g);
   ac.start();
@@ -526,7 +526,7 @@ void glissandoLowtoHigh() {
  
   AudioContext ac = new AudioContext();
   SamplePlayer player = new SamplePlayer(ac, SampleManager.sample("C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/glissando low to high.wav"));
-  Gain g = new Gain(ac, 1, 1);
+  beads.Gain g = new beads.Gain(ac, 1, 1);
   g.addInput(player);    
   ac.out.addInput(g);
   ac.start();

@@ -1,7 +1,18 @@
 import de.voidplus.leapmotion.*;
 import beads.*;
+import java.util.Arrays;
+import ddf.minim.*;
+import ddf.minim.ugens.*;
+
 
 AudioContext ac;
+AudioInput in;
+AudioRecorder recorder;
+Minim minim;
+boolean recorded = false;
+AudioOutput out;
+FilePlayer player;
+
 
 LeapMotion leap;
 PVector handPosition;
@@ -42,6 +53,11 @@ void setup()
  
   leap = new LeapMotion(this).allowGestures("swipe, key_tap"); 
   handPosition = new PVector();
+  
+   minim = new Minim(this);
+  in = minim.getLineIn(Minim.STEREO, 2048);
+  recorder = minim.createRecorder(in,"your_recording.wav");
+  out = minim.getLineOut(Minim.STEREO);
   
   ac = new AudioContext();
   
@@ -113,8 +129,20 @@ void draw()
    
    textSize(32);
   fill(0);
-  text("Swipe Mode is: " + swipeIs, width/2.5,height/1.20);
+  text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/4.10,height/1.20);
  
+ if ( recorder.isRecording() )
+  {
+    text("Now recording, press the 'r' key to stop recording", width/3.5, height/6);
+  }
+  else if(!recorded)
+  {
+    text("Press the 'r' key to start recording", width/3, height/6);
+  }
+  else
+  {
+    text("Press the 'a' key to save the recording to disk and play it back", width/4, height/6);
+  } 
 
 }
 
@@ -133,6 +161,37 @@ void keyPressed(){
       swipeIs = "Off";
       println("swipe is off");
     }
+  }
+  
+  if(!recorded && key == 'r')
+  {
+    if(recorder.isRecording())
+    {
+      recorder.endRecord();
+      recorded = true;
+    } 
+    else
+    {
+      recorder.beginRecord();
+      recorded = true;
+    }
+  }
+  
+  if(recorded && key == 'a')
+  {
+    if(player != null)
+    {
+      player.unpatch(out);
+      player.close();
+    }
+    player = new FilePlayer(recorder.save());
+    player.patch(out);
+    player.play();
+  }
+  
+  if(recorded && key == 'n'){
+    recorded = false;
+    
   }
 }
 
