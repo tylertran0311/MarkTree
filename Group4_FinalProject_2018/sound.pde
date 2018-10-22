@@ -1,8 +1,15 @@
+Minim minim_2 = new Minim(this);
+AudioPlayer player_2;
+AudioInput input;
+String filePath = "C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/";
+
 void sound(int i) {
-  println(i);
+  //println(i);
+  
+  
   if (i == 0) {
     //file
-    String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+    String audioFile=filePath + (i+1) + ".wav";
     SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
     //Audio settings
     //Pitch of the sound
@@ -30,7 +37,7 @@ void sound(int i) {
 
     if (i == 1) {
 
-      String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+      String audioFile=filePath + (i+1) + ".wav";
       SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
       Envelope rate=new Envelope(ac, 0.5);
       player.setRate(rate);
@@ -53,7 +60,7 @@ void sound(int i) {
     } else
 
       if (i == 2) {
-        String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+        String audioFile=filePath + (i+1) + ".wav";
         SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
         Envelope rate=new Envelope(ac, 0.5);
         player.setRate(rate);
@@ -75,7 +82,7 @@ void sound(int i) {
       } else
 
         if (i == 3) {
-          String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+          String audioFile=filePath + (i+1) + ".wav";
           SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
           Envelope rate=new Envelope(ac, 0.5);
           player.setRate(rate);
@@ -96,7 +103,7 @@ void sound(int i) {
         } else
 
           if (i==4) {
-            String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+            String audioFile=filePath + (i+1) + ".wav";
             SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
             Envelope rate=new Envelope(ac, 0.5);
             player.setRate(rate);
@@ -118,7 +125,7 @@ void sound(int i) {
           } else
 
             if (i ==5) {
-              String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+              String audioFile=filePath + (i+1) + ".wav";
               SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
               Envelope rate=new Envelope(ac, 0.5);
               player.setRate(rate);
@@ -140,7 +147,7 @@ void sound(int i) {
             } else
 
               if (i==6) {
-                String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                String audioFile=filePath + (i+1) + ".wav";
                 SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                 Envelope rate=new Envelope(ac, 0.5);
                 player.setRate(rate);
@@ -162,7 +169,7 @@ void sound(int i) {
               } else
 
                 if (i==7) {
-                  String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                  String audioFile=filePath + (i+1) + ".wav";
                   SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                   Envelope rate=new Envelope(ac, 0.5);
                   player.setRate(rate);
@@ -184,7 +191,7 @@ void sound(int i) {
                 } else
 
                   if (i==8) {
-                    String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                    String audioFile=filePath + (i+1) + ".wav";
                     SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                     Envelope rate=new Envelope(ac, 0.5);
                     player.setRate(rate);
@@ -206,7 +213,7 @@ void sound(int i) {
                   } else
 
                     if (i==9) {
-                      String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                      String audioFile=filePath + (i+1) + ".wav";
                       SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                       Envelope rate=new Envelope(ac, 0.5);
                       player.setRate(rate);
@@ -228,7 +235,7 @@ void sound(int i) {
                     } else
 
                       if (i==10) {
-                        String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                        String audioFile=filePath + (i+1) + ".wav";
                         SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                         Envelope rate=new Envelope(ac, 0.5);
                         player.setRate(rate);
@@ -249,7 +256,7 @@ void sound(int i) {
                         ac.start();
                       } else
                         if (i==11) {
-                          String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                          String audioFile=filePath + (i+1) + ".wav";
                           SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                           Envelope rate=new Envelope(ac, 0.5);
                           player.setRate(rate);
@@ -270,7 +277,7 @@ void sound(int i) {
                           ac.start();
                         } else
                           if (i==12) {
-                            String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                            String audioFile=filePath + (i+1) + ".wav";
                             SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                             Envelope rate=new Envelope(ac, 0.5);
                             player.setRate(rate);
@@ -292,7 +299,7 @@ void sound(int i) {
                           } else
 
                             if (i==13) {
-                              String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                              String audioFile=filePath + (i+1) + ".wav";
                               SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                               Envelope rate=new Envelope(ac, 0.5);
                               player.setRate(rate);
@@ -313,7 +320,7 @@ void sound(int i) {
                               ac.start();
                             } else
                               if (i==14) {
-                                String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                String audioFile=filePath + (i+1) + ".wav";
                                 SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                 Envelope rate=new Envelope(ac, 0.5);
                                 player.setRate(rate);
@@ -335,7 +342,7 @@ void sound(int i) {
                               } else
 
                                 if (i==15) {
-                                  String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                  String audioFile=filePath + (i+1) + ".wav";
                                   SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                   Envelope rate=new Envelope(ac, 0.5);
                                   player.setRate(rate);
@@ -357,7 +364,7 @@ void sound(int i) {
                                 } else
 
                                   if (i==16) {
-                                    String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                    String audioFile=filePath + (i+1) + ".wav";
                                     SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                     Envelope rate=new Envelope(ac, 0.5);
                                     player.setRate(rate);
@@ -379,7 +386,7 @@ void sound(int i) {
                                   } else
 
                                     if (i==17) {
-                                      String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                      String audioFile=filePath + (i+1) + ".wav";
                                       SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                       Envelope rate=new Envelope(ac, 0.5);
                                       player.setRate(rate);
@@ -401,7 +408,7 @@ void sound(int i) {
                                     } else
 
                                       if (i==18) {
-                                        String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                        String audioFile=filePath + (i+1) + ".wav";
                                         SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                         Envelope rate=new Envelope(ac, 0.5);
                                         player.setRate(rate);
@@ -423,7 +430,7 @@ void sound(int i) {
                                       } else
 
                                         if (i==19) {
-                                          String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                          String audioFile=filePath + (i+1) + ".wav";
                                           SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                           Envelope rate=new Envelope(ac, 0.5);
                                           player.setRate(rate);
@@ -445,7 +452,7 @@ void sound(int i) {
                                         } else
 
                                           if (i==20) {
-                                            String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                            String audioFile=filePath + (i+1) + ".wav";
                                             SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                             Envelope rate=new Envelope(ac, 0.5);
                                             player.setRate(rate);
@@ -467,7 +474,7 @@ void sound(int i) {
                                           } else
 
                                             if (i==21) {
-                                              String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                              String audioFile=filePath + (i+1) + ".wav";
                                               SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                               Envelope rate=new Envelope(ac, 0.5);
                                               player.setRate(rate);
@@ -489,7 +496,7 @@ void sound(int i) {
                                             } else
 
                                               if (i==22) {
-                                                String audioFile="C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/" + (i+1) + ".wav";
+                                                String audioFile=filePath + (i+1) + ".wav";
                                                 SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
                                                 Envelope rate=new Envelope(ac, 0.5);
                                                 player.setRate(rate);
@@ -513,20 +520,12 @@ void sound(int i) {
 
 void glissandoHightoLow() {
 
-  AudioContext ac = new AudioContext();  
-  SamplePlayer player = new SamplePlayer(ac, SampleManager.sample("C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/glissando high to low.wav"));
-  beads.Gain g = new beads.Gain(ac, 1, 1);
-  g.addInput(player);    
-  ac.out.addInput(g);
-  ac.start();
+ player_2 = minim_2.loadFile("glissando high to low.wav");
+ player_2.play();
 }
 
 void glissandoLowtoHigh() {
 
-  AudioContext ac = new AudioContext();
-  SamplePlayer player = new SamplePlayer(ac, SampleManager.sample("C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/glissando low to high.wav"));
-  beads.Gain g = new beads.Gain(ac, 1, 1);
-  g.addInput(player);    
-  ac.out.addInput(g);
-  ac.start();
+  player_2 = minim_2.loadFile("glissando low to high.wav");
+  player_2.play();
 }

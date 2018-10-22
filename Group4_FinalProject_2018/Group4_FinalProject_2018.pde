@@ -13,6 +13,8 @@ boolean recorded = false;
 AudioOutput out;
 FilePlayer player;
 
+int stage = 1;
+
 
 LeapMotion leap;
 PVector handPosition;
@@ -45,8 +47,8 @@ color white, black, buttonColor, buttonHighlight;
 
 void setup()
 {
-  //fullScreen();
-  size(1920, 1080); // use this if your screen is not 1080p
+  fullScreen();
+  //size(1920, 1080); // use this if your screen is not 1080p
   background(255);
 
 
@@ -69,7 +71,18 @@ void setup()
 
 void draw()
 {
-
+  if(stage==1){
+    background(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    fill(0);
+    text("Press any key to start", width/2, height/2);
+    if(keyPressed == true){
+      stage = 2;
+    }
+  }
+  
+  if(stage==2){
 
   background(255);
 
@@ -137,6 +150,7 @@ void draw()
   {
     text("Press the 'a' key to save the recording to disk and play it back or Press the 'n' key for a new recording", width/15.7, height/6);
   }
+  }
 }
 
 
@@ -184,6 +198,7 @@ void keyPressed() {
     recorded = false;
     recorder = minim.createRecorder(in, "your_recording.wav");
   }
+
 }
 
 void leapOnKeyTapGesture(KeyTapGesture g) {
@@ -249,9 +264,9 @@ void leapOnSwipeGesture(SwipeGesture g, int state) {
     case 2: // Update
       break;
     case 3: // Stop
-      if (handPosition.x >=0 && handPosition.x <=960) {
+      if (handPosition.x >=0 && handPosition.x <=width/2) {
         glissandoLowtoHigh();
-      } else if (handPosition.x >=961 && handPosition.x <=1920) {
+      } else if (handPosition.x >=width/2 && handPosition.x <=width) {
         glissandoHightoLow();
       }
       break;
