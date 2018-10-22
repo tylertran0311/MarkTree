@@ -51,7 +51,7 @@ void setup()
   //size(1920, 1080); // use this if your screen is not 1080p
   background(255);
 
-
+  selectFolder("Please select the folder which contains the chime sounds:", "soundFilePath");
 
   leap = new LeapMotion(this).allowGestures("swipe, key_tap"); 
   handPosition = new PVector();
@@ -67,6 +67,14 @@ void setup()
   black=color(120);
   buttonColor=color(211);
   buttonHighlight=color(100);
+}
+
+void soundFilePath(File selection){
+  println(selection.getAbsolutePath());
+  filePath = selection.getAbsolutePath();
+  //filePath = filePath.replace('\', '/');
+  
+  println(filePath);
 }
 
 void draw()

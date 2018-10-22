@@ -1,7 +1,7 @@
 Minim minim_2 = new Minim(this);
 AudioPlayer player_2;
 AudioInput input;
-String filePath = "C:/Users/Kian/Documents/UTS - Copy/Year 4/Spring Sem/Interactive Media/Mark Tree Prototype - Leap Motion Interaction - Kian Southgate/Sound Clips/Final Clips WAV/";
+String filePath;
 
 void sound(int i) {
   //println(i);
