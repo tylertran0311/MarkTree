@@ -405,17 +405,17 @@ void keyPressed() {
 void leapOnCircleGesture(CircleGesture g, int state) {
 
 
-
+println("circle");
   switch(state) {
   case 1: // Start
     break;
   case 2: // Update
     break;
   case 3: // Stop
-    if (handPosition.x >= startButtonX & handPosition.x <=(startButtonX + buttonWidth) & handPosition.y >=startButtonY & handPosition.y <=(startButtonY+buttonHeight) && rectOver == true ) {
+    
       
-      menu();
-    }
+      mouseClicked();
+    
     break;
   }
 }
