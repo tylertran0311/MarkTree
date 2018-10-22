@@ -66,7 +66,7 @@ void setup()
   white=color(255);
   black=color(120);
   buttonColor=color(211);
-  buttonHighlight=color(100);
+  buttonHighlight=color(100);  
 }
 
 void soundFilePath(File selection){
