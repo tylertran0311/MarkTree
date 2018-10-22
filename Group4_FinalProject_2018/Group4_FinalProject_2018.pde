@@ -119,7 +119,7 @@ if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButt
   rectOver_2 = false;
 }
 
-if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight) & stage == 3 ||
+if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight)  ||
   mouseX >= (backButtonX - buttonWidth)  & mouseX <= (backButtonX + buttonWidth) & mouseY >=(backButtonY-buttonHeight) & mouseY <=(backButtonY+buttonHeight)
 ){
   if(stage == 2 || stage == 3 || stage == 4){
