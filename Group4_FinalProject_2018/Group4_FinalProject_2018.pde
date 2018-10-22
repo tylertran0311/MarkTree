@@ -25,6 +25,7 @@ int backButtonY;
 int instructionsButtonX;
 int instructionsButtonY;
 int filePathButtonY;
+int stages[] = {2,3,4};
 
 
 LeapMotion leap;
@@ -118,12 +119,17 @@ if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButt
   rectOver_2 = false;
 }
 
-if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight) ||
+if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight) & stage == 3 ||
   mouseX >= (backButtonX - buttonWidth)  & mouseX <= (backButtonX + buttonWidth) & mouseY >=(backButtonY-buttonHeight) & mouseY <=(backButtonY+buttonHeight)
 ){
+  if(stage == 2 || stage == 3 || stage == 4){
   rectOver_3 = true;
+  
+  }
 } else {
+  if(stage == 1){
   rectOver_3 = false;
+  }
 }
 
 if (handPosition.x >= (instructionsButtonX - buttonWidth) & handPosition.x <=(instructionsButtonX+ buttonWidth) & handPosition.y >=(instructionsButtonY-buttonHeight) & handPosition.y <=(instructionsButtonY+buttonHeight) ||
@@ -336,19 +342,22 @@ background(255);
 void mouseClicked(){
   if(rectOver == true){
     stage =2;
-    //print("hi");
+    println(stage);
   }
   
   if(rectOver_2 == true){
     stage =3;
+    println(stage);
   }
   
   if(rectOver_3 == true){
     stage=1;
+    println(stage);
   }
   
   if(rectOver_4 == true){
     stage = 4;
+    println(stage);
   }
   
   if(rectOver_5 == true){
@@ -402,6 +411,8 @@ void keyPressed() {
   }
 }
 
+
+
 void leapOnCircleGesture(CircleGesture g, int state) {
 
 
@@ -414,7 +425,23 @@ println("circle");
   case 3: // Stop
     
       
-      mouseClicked();
+  if(rectOver == true){
+    stage =2;
+    //print("hi");
+  } else 
+  if(rectOver_2 == true){
+    stage =3;
+  } else   
+  if(rectOver_3 == true){
+    stage=1;
+  } else   
+  if(rectOver_4 == true){
+    stage = 4;
+  } else  
+  if(rectOver_5 == true){
+      selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+
+  }
     
     break;
   }
