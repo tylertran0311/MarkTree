@@ -2,7 +2,4 @@
 - add collisions and physics:
 	-add chimes and boundaries to chimetouching + for loop for display dependent on number of chimes
 -improve menu:
-	-add about page
-	-add start button
-	-add about button
-	-allow user to input path for sound clips?
+	-disable leap motion interaction with menu?
