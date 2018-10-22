@@ -14,12 +14,28 @@ AudioOutput out;
 FilePlayer player;
 
 int stage = 1;
+int buttonWidth = width*2;
+int buttonHeight = height*2;
+int startButtonX;
+int startButtonY;
+int aboutButtonX;
+int aboutButtonY;
+int backButtonX;
+int backButtonY;
+int instructionsButtonX;
+int instructionsButtonY;
+int filePathButtonY;
 
 
 LeapMotion leap;
 PVector handPosition;
 boolean swipeOnorOff = true;
 String swipeIs = "On";
+boolean rectOver = false;
+boolean rectOver_2 = false;
+boolean rectOver_3 = false;
+boolean rectOver_4 = false;
+boolean rectOver_5 = false;
 
 float xValues[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 float yValues[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
@@ -47,13 +63,20 @@ color white, black, buttonColor, buttonHighlight;
 
 void setup()
 {
-  fullScreen();
-  //size(1920, 1080); // use this if your screen is not 1080p
+  //fullScreen();
+  size(1920, 1080); // use this if your screen is not 1080p
   background(255);
+  startButtonX = width/2 - 300;
+  startButtonY = height/2;
+  aboutButtonX = width/2;
+  aboutButtonY = height/2 - 300;
+  backButtonX = 0;
+  backButtonY = 0;
+  instructionsButtonX = width/2 + 300;
+  instructionsButtonY = height/2;
+  filePathButtonY = height/2 + 300;
 
-  selectFolder("Please select the folder which contains the chime sounds:", "soundFilePath");
-
-  leap = new LeapMotion(this).allowGestures("swipe, key_tap"); 
+  leap = new LeapMotion(this).allowGestures(); 
   handPosition = new PVector();
 
   minim = new Minim(this);
@@ -66,99 +89,273 @@ void setup()
   white=color(255);
   black=color(120);
   buttonColor=color(211);
-  buttonHighlight=color(100);  
+  buttonHighlight=color(100);
 }
 
-void soundFilePath(File selection){
-  filePath = selection.getAbsolutePath();  
-  
+void soundFilePath(File selection) {
+  filePath = selection.getAbsolutePath();
 }
+
+
 
 void draw()
 {
-  if(stage==1){
-    background(255);
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    fill(0);
-    text("Press any key to start", width/2, height/2);
-    if(keyPressed == true){
-      stage = 2;
-    }
-  }
-  
-  if(stage==2){
+ //println(buttonWidth);
+ //println(mouseX);
+if (handPosition.x >= (startButtonX - buttonWidth) & handPosition.x <=(startButtonX+ buttonWidth) & handPosition.y >=(startButtonY-buttonHeight) & handPosition.y <=(startButtonY+buttonHeight) ||
+  mouseX >= (startButtonX - buttonWidth)  & mouseX <= (startButtonX + buttonWidth) & mouseY >=(startButtonY-buttonHeight) & mouseY <=(startButtonY+buttonHeight)
+){
+  rectOver = true;
+} else {
+  rectOver = false;
+}
 
-  background(255);
+if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButtonX+ buttonWidth) & handPosition.y >=(aboutButtonY-buttonHeight) & handPosition.y <=(aboutButtonY+buttonHeight) ||
+  mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(aboutButtonY-buttonHeight) & mouseY <=(aboutButtonY+buttonHeight)
+){
+  rectOver_2 = true;
+} else {
+  rectOver_2 = false;
+}
 
+if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight) ||
+  mouseX >= (backButtonX - buttonWidth)  & mouseX <= (backButtonX + buttonWidth) & mouseY >=(backButtonY-buttonHeight) & mouseY <=(backButtonY+buttonHeight)
+){
+  rectOver_3 = true;
+} else {
+  rectOver_3 = false;
+}
 
-  float m=0.5; //change this to move chimes across the width of the screen
-  float n=4;
-  float d=0;
-  float b=height/14;
-  float c=width/6;
+if (handPosition.x >= (instructionsButtonX - buttonWidth) & handPosition.x <=(instructionsButtonX+ buttonWidth) & handPosition.y >=(instructionsButtonY-buttonHeight) & handPosition.y <=(instructionsButtonY+buttonHeight) ||
+  mouseX >= (instructionsButtonX - buttonWidth)  & mouseX <= (instructionsButtonX + buttonWidth) & mouseY >=(instructionsButtonY-buttonHeight) & mouseY <=(instructionsButtonY+buttonHeight)
+){
+  rectOver_4 = true;
+} else {
+  rectOver_4 = false;
+}
 
-
-
-  strokeWeight(3);
-  stroke(0);
-  fill(150, 111, 51);
-  rect (20, height/4, maxAmount*x, x/2); // wooden bar rectangle
-
-
-
-  for (int i=0; i<maxAmount; i++)
-  {
-    //strokeWeight();
-    stroke(0);
-    line (b+d, c, b+d, c*1.30); //string connecting to chime    
-    d=d+100; //the number value here changes the width between the strings
-
-
-    fill(192, 192, 192);
-    noStroke();
-    rect (x*m, 4*x, x/2, n*x); //chimes    
-
-    xValues[i] = x*m;    
-    yValues[i] = 4*x;
-
-    chimeWidth[i] = x/2;
-    chimeHeight[i] = n*x;
-
-    m++;
-    n=n-0.2;
-    chimeNumber[i] = i;
-  }
-
-
-
-
-  if (leap.getHands().size()>0) { //if more than 1 hand
-    handPosition=leap.getHands().get(0).getStabilizedPosition();
-  }//get hand position
-  strokeWeight(2.5);
-  stroke(0);
-  fill(255, 0, 0);
-  ellipse(handPosition.x, handPosition.y, 30, 30);
-
-  textSize(32);
-  fill(0);
-  text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/4.10, height/1.20);
-
-  if ( recorder.isRecording() )
-  {
-    text("Now recording, press the 'r' key to stop recording", width/3.5, height/6);
-  } else if (!recorded)
-  {
-    text("Press the 'r' key to start recording", width/3, height/6);
-  } else
-  {
-    text("Press the 'a' key to save the recording to disk and play it back or Press the 'n' key for a new recording", width/15.7, height/6);
-  }
-  }
+if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButtonX+ buttonWidth) & handPosition.y >=(filePathButtonY-buttonHeight) & handPosition.y <=(filePathButtonY+buttonHeight) ||
+  mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(filePathButtonY-buttonHeight) & mouseY <=(filePathButtonY+buttonHeight)
+){
+  rectOver_5 = true;
+} else {
+  rectOver_5 = false;
 }
 
 
+
+
+
+  if (stage==1) {
+
+    background(255);
+    if (leap.getHands().size()>0) { //if more than 1 hand
+      handPosition=leap.getHands().get(0).getStabilizedPosition();
+    }//get hand position
+
+
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    rectMode(CENTER);
+
+    if (rectOver) {
+      
+      fill(color(0,0,255));
+    } else {
+      fill(255);
+    }
+ 
+    rect(startButtonX, startButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+   text("Start", startButtonX, startButtonY);
+ 
+   
+    if (rectOver_2) {
+      
+      fill(color(255,255,0));
+    } else {
+      fill(255);
+    }
+    rect(aboutButtonX, aboutButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+    text("About", aboutButtonX, aboutButtonY);
+    
+      if (rectOver_5) {
+      
+      fill(color(224,224,224));
+    } else {
+      fill(255);
+    }
+    rect(width/2, filePathButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+    text("Add Sounds", width/2, filePathButtonY);
+
+if (rectOver_4) {
+      
+      fill(color(255,0,0));
+    } else {
+      fill(255);
+    }
+    rect(instructionsButtonX, instructionsButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+    text("Instructions", instructionsButtonX, instructionsButtonY);
+
+    
+
+    strokeWeight(2.5);
+    stroke(0);
+    fill(255, 0, 0);
+    ellipse(handPosition.x, handPosition.y, 30, 30);
+    
+  }
+
+  if (stage==2) {
+
+    background(255);
+
+      rectMode(CORNER);
+      if (rectOver_3) {
+      
+      fill(color(192,192,192));
+    } else {
+      fill(255);
+    }
+    rect(backButtonX, backButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("BACK", buttonWidth/2, buttonHeight/2);
+
+    float m=0.5; //change this to move chimes across the width of the screen
+    float n=4;
+    float d=0;
+    float b=height/14;
+    float c=width/6;
+
+
+
+    strokeWeight(3);
+    stroke(0);
+    fill(150, 111, 51);
+    rect (20, height/4, maxAmount*x, x/2); // wooden bar rectangle
+
+
+
+    for (int i=0; i<maxAmount; i++)
+    {
+      //strokeWeight();
+      stroke(0);
+      line (b+d, c, b+d, c*1.30); //string connecting to chime    
+      d=d+100; //the number value here changes the width between the strings
+
+
+      fill(192, 192, 192);
+      noStroke();
+      rect (x*m, 4*x, x/2, n*x); //chimes    
+
+      xValues[i] = x*m;    
+      yValues[i] = 4*x;
+
+      chimeWidth[i] = x/2;
+      chimeHeight[i] = n*x;
+
+      m++;
+      n=n-0.2;
+      chimeNumber[i] = i;
+    }
+
+
+
+
+    if (leap.getHands().size()>0) { //if more than 1 hand
+      handPosition=leap.getHands().get(0).getStabilizedPosition();
+    }//get hand position
+    strokeWeight(2.5);
+    stroke(0);
+    fill(255, 0, 0);
+    ellipse(handPosition.x, handPosition.y, 30, 30);
+
+    textSize(32);
+    fill(0);
+    text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/4.10, height/1.20);
+
+    if ( recorder.isRecording() )
+    {
+      text("Now recording, press the 'r' key to stop recording", width/3.5, height/6);
+    } else if (!recorded)
+    {
+      text("Press the 'r' key to start recording", width/3, height/6);
+    } else
+    {
+      text("Press the 'a' key to save the recording to disk and play it back or Press the 'n' key for a new recording", width/15.7, height/6);
+    }
+  }
+  
+  if (stage==3){
+    background(255);
+    if (leap.getHands().size()>0) { //if more than 1 hand
+      handPosition=leap.getHands().get(0).getStabilizedPosition();
+    }//get hand position
+    rectMode(CORNER);
+      if (rectOver_3) {
+      
+      fill(color(192,192,192));
+    } else {
+      fill(255);
+    }
+    rect(backButtonX, backButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("BACK", buttonWidth/2, buttonHeight/2);
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("Interactive virtual Mark Tree Created in Processing by Kian Southgate © 2018", width/2, height/2);
+  
+    strokeWeight(2.5);
+    stroke(0);
+    fill(255, 0, 0);
+    ellipse(handPosition.x, handPosition.y, 30, 30);
+}
+
+if(stage == 4){
+background(255);
+
+    if (rectOver_3) {
+      
+      fill(color(192,192,192));
+    } else {
+      fill(255);
+    }
+    rectMode(CORNER);
+    rect(backButtonX, backButtonY, buttonWidth, buttonHeight, 7);
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text("BACK", buttonWidth/2, buttonHeight/2);
+}
+}
+
+void mouseClicked(){
+  if(rectOver == true){
+    stage =2;
+    //print("hi");
+  }
+  
+  if(rectOver_2 == true){
+    stage =3;
+  }
+  
+  if(rectOver_3 == true){
+    stage=1;
+  }
+  
+  if(rectOver_4 == true){
+    stage = 4;
+  }
+  
+  if(rectOver_5 == true){
+      selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+
+  }
+}
 
 
 void keyPressed() {
@@ -203,12 +400,30 @@ void keyPressed() {
     recorded = false;
     recorder = minim.createRecorder(in, "your_recording.wav");
   }
-
 }
 
-void leapOnKeyTapGesture(KeyTapGesture g) {
-  println("you tapped");
+void leapOnCircleGesture(CircleGesture g, int state) {
 
+
+
+  switch(state) {
+  case 1: // Start
+    break;
+  case 2: // Update
+    break;
+  case 3: // Stop
+    if (handPosition.x >= startButtonX & handPosition.x <=(startButtonX + buttonWidth) & handPosition.y >=startButtonY & handPosition.y <=(startButtonY+buttonHeight) && rectOver == true ) {
+      
+      menu();
+    }
+    break;
+  }
+}
+
+
+
+
+void leapOnKeyTapGesture(KeyTapGesture g) {
 
   if (handPosition.x >=xValues[0] && handPosition.x <=(xValues[0]+chimeWidth[0]) & handPosition.y >=yValues[0] && handPosition.y <=(yValues[0]+chimeHeight[0]) ) {
     sound(0);
