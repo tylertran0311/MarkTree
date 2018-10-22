@@ -70,11 +70,8 @@ void setup()
 }
 
 void soundFilePath(File selection){
-  println(selection.getAbsolutePath());
-  filePath = selection.getAbsolutePath();
-  //filePath = filePath.replace('\', '/');
+  filePath = selection.getAbsolutePath();  
   
-  println(filePath);
 }
 
 void draw()
