@@ -101,25 +101,30 @@ void soundFilePath(File selection) {
 
 void draw()
 {
+
  //println(buttonWidth);
  //println(mouseX);
 if (handPosition.x >= (startButtonX - buttonWidth) & handPosition.x <=(startButtonX+ buttonWidth) & handPosition.y >=(startButtonY-buttonHeight) & handPosition.y <=(startButtonY+buttonHeight) ||
   mouseX >= (startButtonX - buttonWidth)  & mouseX <= (startButtonX + buttonWidth) & mouseY >=(startButtonY-buttonHeight) & mouseY <=(startButtonY+buttonHeight)
 ){
   rectOver = true;
+
 } else {
   rectOver = false;
+  
 }
 
 if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButtonX+ buttonWidth) & handPosition.y >=(aboutButtonY-buttonHeight) & handPosition.y <=(aboutButtonY+buttonHeight) ||
   mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(aboutButtonY-buttonHeight) & mouseY <=(aboutButtonY+buttonHeight)
 ){
   rectOver_2 = true;
+ 
 } else {
   rectOver_2 = false;
+  
 }
 
-if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight)  ||
+if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight)  & stage==3 ||
   mouseX >= (backButtonX - buttonWidth)  & mouseX <= (backButtonX + buttonWidth) & mouseY >=(backButtonY-buttonHeight) & mouseY <=(backButtonY+buttonHeight)
 ){
   if(stage == 2 || stage == 3 || stage == 4){
@@ -127,9 +132,9 @@ if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButton
   
   }
 } else {
-  if(stage == 1){
+  
   rectOver_3 = false;
-  }
+ 
 }
 
 if (handPosition.x >= (instructionsButtonX - buttonWidth) & handPosition.x <=(instructionsButtonX+ buttonWidth) & handPosition.y >=(instructionsButtonY-buttonHeight) & handPosition.y <=(instructionsButtonY+buttonHeight) ||
@@ -342,22 +347,19 @@ background(255);
 void mouseClicked(){
   if(rectOver == true){
     stage =2;
-    println(stage);
   }
   
   if(rectOver_2 == true){
     stage =3;
-    println(stage);
   }
   
   if(rectOver_3 == true){
     stage=1;
-    println(stage);
+   
   }
   
   if(rectOver_4 == true){
     stage = 4;
-    println(stage);
   }
   
   if(rectOver_5 == true){
