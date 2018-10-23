@@ -2,4 +2,4 @@
 - add collisions and physics:
 	-add chimes and boundaries to chimetouching + for loop for display dependent on number of chimes
 -improve menu:
-	-disable leap motion interaction with menu?
+	

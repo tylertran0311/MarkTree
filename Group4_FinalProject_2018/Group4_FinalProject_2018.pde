@@ -25,7 +25,7 @@ int backButtonY;
 int instructionsButtonX;
 int instructionsButtonY;
 int filePathButtonY;
-int stages[] = {2,3,4};
+int stages[] = {2, 3, 4};
 
 
 LeapMotion leap;
@@ -94,7 +94,11 @@ void setup()
 }
 
 void soundFilePath(File selection) {
-  filePath = selection.getAbsolutePath();
+  if (selection != null) {
+    filePath = selection.getAbsolutePath();
+  } else {
+    selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+  }
 }
 
 
@@ -102,56 +106,45 @@ void soundFilePath(File selection) {
 void draw()
 {
 
- //println(buttonWidth);
- //println(mouseX);
-if (handPosition.x >= (startButtonX - buttonWidth) & handPosition.x <=(startButtonX+ buttonWidth) & handPosition.y >=(startButtonY-buttonHeight) & handPosition.y <=(startButtonY+buttonHeight) ||
-  mouseX >= (startButtonX - buttonWidth)  & mouseX <= (startButtonX + buttonWidth) & mouseY >=(startButtonY-buttonHeight) & mouseY <=(startButtonY+buttonHeight)
-){
-  rectOver = true;
-
-} else {
-  rectOver = false;
-  
-}
-
-if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButtonX+ buttonWidth) & handPosition.y >=(aboutButtonY-buttonHeight) & handPosition.y <=(aboutButtonY+buttonHeight) ||
-  mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(aboutButtonY-buttonHeight) & mouseY <=(aboutButtonY+buttonHeight)
-){
-  rectOver_2 = true;
- 
-} else {
-  rectOver_2 = false;
-  
-}
-
-if (handPosition.x >= (backButtonX - buttonWidth) & handPosition.x <=(backButtonX+ buttonWidth) & handPosition.y >=(backButtonY-buttonHeight) & handPosition.y <=(backButtonY+buttonHeight)  & stage==3 ||
-  mouseX >= (backButtonX - buttonWidth)  & mouseX <= (backButtonX + buttonWidth) & mouseY >=(backButtonY-buttonHeight) & mouseY <=(backButtonY+buttonHeight)
-){
-  if(stage == 2 || stage == 3 || stage == 4){
-  rectOver_3 = true;
-  
+  //println(buttonWidth);
+  //println(mouseX);
+  if (mouseX >= (startButtonX - buttonWidth)  & mouseX <= (startButtonX + buttonWidth) & mouseY >=(startButtonY-buttonHeight) & mouseY <=(startButtonY+buttonHeight)
+    ) {
+    rectOver = true;
+  } else {
+    rectOver = false;
   }
-} else {
-  
-  rectOver_3 = false;
- 
-}
 
-if (handPosition.x >= (instructionsButtonX - buttonWidth) & handPosition.x <=(instructionsButtonX+ buttonWidth) & handPosition.y >=(instructionsButtonY-buttonHeight) & handPosition.y <=(instructionsButtonY+buttonHeight) ||
-  mouseX >= (instructionsButtonX - buttonWidth)  & mouseX <= (instructionsButtonX + buttonWidth) & mouseY >=(instructionsButtonY-buttonHeight) & mouseY <=(instructionsButtonY+buttonHeight)
-){
-  rectOver_4 = true;
-} else {
-  rectOver_4 = false;
-}
+  if (mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(aboutButtonY-buttonHeight) & mouseY <=(aboutButtonY+buttonHeight)
+    ) {
+    rectOver_2 = true;
+  } else {
+    rectOver_2 = false;
+  }
 
-if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButtonX+ buttonWidth) & handPosition.y >=(filePathButtonY-buttonHeight) & handPosition.y <=(filePathButtonY+buttonHeight) ||
-  mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(filePathButtonY-buttonHeight) & mouseY <=(filePathButtonY+buttonHeight)
-){
-  rectOver_5 = true;
-} else {
-  rectOver_5 = false;
-}
+  if (mouseX >= (backButtonX - buttonWidth)  & mouseX <= (backButtonX + buttonWidth) & mouseY >=(backButtonY-buttonHeight) & mouseY <=(backButtonY+buttonHeight)) {
+    if (stage == 2 || stage == 3 || stage == 4) {
+      rectOver_3 = true;
+    }
+  } else {
+
+    rectOver_3 = false;
+  }
+
+  if (handPosition.x >= (instructionsButtonX - buttonWidth) & handPosition.x <=(instructionsButtonX+ buttonWidth) & handPosition.y >=(instructionsButtonY-buttonHeight) & handPosition.y <=(instructionsButtonY+buttonHeight) ||
+    mouseX >= (instructionsButtonX - buttonWidth)  & mouseX <= (instructionsButtonX + buttonWidth) & mouseY >=(instructionsButtonY-buttonHeight) & mouseY <=(instructionsButtonY+buttonHeight)
+    ) {
+    rectOver_4 = true;
+  } else {
+    rectOver_4 = false;
+  }
+
+  if (mouseX >= (aboutButtonX - buttonWidth)  & mouseX <= (aboutButtonX + buttonWidth) & mouseY >=(filePathButtonY-buttonHeight) & mouseY <=(filePathButtonY+buttonHeight)
+    ) {
+    rectOver_5 = true;
+  } else {
+    rectOver_5 = false;
+  }
 
 
 
@@ -160,9 +153,7 @@ if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButt
   if (stage==1) {
 
     background(255);
-    if (leap.getHands().size()>0) { //if more than 1 hand
-      handPosition=leap.getHands().get(0).getStabilizedPosition();
-    }//get hand position
+
 
 
     textSize(32);
@@ -170,30 +161,30 @@ if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButt
     rectMode(CENTER);
 
     if (rectOver) {
-      
-      fill(color(0,0,255));
+
+      fill(color(0, 0, 255));
     } else {
       fill(255);
     }
- 
+
     rect(startButtonX, startButtonY, buttonWidth, buttonHeight, 7);
     fill(0);
-   text("Start", startButtonX, startButtonY);
- 
-   
+    text("Start", startButtonX, startButtonY);
+
+
     if (rectOver_2) {
-      
-      fill(color(255,255,0));
+
+      fill(color(255, 255, 0));
     } else {
       fill(255);
     }
     rect(aboutButtonX, aboutButtonY, buttonWidth, buttonHeight, 7);
     fill(0);
     text("About", aboutButtonX, aboutButtonY);
-    
-      if (rectOver_5) {
-      
-      fill(color(224,224,224));
+
+    if (rectOver_5) {
+
+      fill(color(224, 224, 224));
     } else {
       fill(255);
     }
@@ -201,33 +192,25 @@ if (handPosition.x >= (aboutButtonX - buttonWidth) & handPosition.x <=(aboutButt
     fill(0);
     text("Add Sounds", width/2, filePathButtonY);
 
-if (rectOver_4) {
-      
-      fill(color(255,0,0));
+    if (rectOver_4) {
+
+      fill(color(255, 0, 0));
     } else {
       fill(255);
     }
     rect(instructionsButtonX, instructionsButtonY, buttonWidth, buttonHeight, 7);
     fill(0);
     text("Instructions", instructionsButtonX, instructionsButtonY);
-
-    
-
-    strokeWeight(2.5);
-    stroke(0);
-    fill(255, 0, 0);
-    ellipse(handPosition.x, handPosition.y, 30, 30);
-    
   }
 
   if (stage==2) {
 
     background(255);
 
-      rectMode(CORNER);
-      if (rectOver_3) {
-      
-      fill(color(192,192,192));
+    rectMode(CORNER);
+    if (rectOver_3) {
+
+      fill(color(192, 192, 192));
     } else {
       fill(255);
     }
@@ -300,16 +283,14 @@ if (rectOver_4) {
       text("Press the 'a' key to save the recording to disk and play it back or Press the 'n' key for a new recording", width/15.7, height/6);
     }
   }
-  
-  if (stage==3){
+
+  if (stage==3) {
     background(255);
-    if (leap.getHands().size()>0) { //if more than 1 hand
-      handPosition=leap.getHands().get(0).getStabilizedPosition();
-    }//get hand position
+
     rectMode(CORNER);
-      if (rectOver_3) {
-      
-      fill(color(192,192,192));
+    if (rectOver_3) {
+
+      fill(color(192, 192, 192));
     } else {
       fill(255);
     }
@@ -320,19 +301,14 @@ if (rectOver_4) {
     fill(0);
     textAlign(CENTER, CENTER);
     text("Interactive virtual Mark Tree Created in Processing by Kian Southgate © 2018", width/2, height/2);
-  
-    strokeWeight(2.5);
-    stroke(0);
-    fill(255, 0, 0);
-    ellipse(handPosition.x, handPosition.y, 30, 30);
-}
+  }
 
-if(stage == 4){
-background(255);
+  if (stage == 4) {
+    background(255);
 
     if (rectOver_3) {
-      
-      fill(color(192,192,192));
+
+      fill(color(192, 192, 192));
     } else {
       fill(255);
     }
@@ -341,30 +317,28 @@ background(255);
     fill(0);
     textAlign(CENTER, CENTER);
     text("BACK", buttonWidth/2, buttonHeight/2);
-}
+  }
 }
 
-void mouseClicked(){
-  if(rectOver == true){
+void mouseClicked() {
+  if (rectOver == true) {
     stage =2;
   }
-  
-  if(rectOver_2 == true){
+
+  if (rectOver_2 == true) {
     stage =3;
   }
-  
-  if(rectOver_3 == true){
+
+  if (rectOver_3 == true) {
     stage=1;
-   
   }
-  
-  if(rectOver_4 == true){
+
+  if (rectOver_4 == true) {
     stage = 4;
   }
-  
-  if(rectOver_5 == true){
-      selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
 
+  if (rectOver_5 == true) {
+    selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
   }
 }
 
@@ -418,33 +392,32 @@ void keyPressed() {
 void leapOnCircleGesture(CircleGesture g, int state) {
 
 
-println("circle");
+  println("circle");
   switch(state) {
   case 1: // Start
     break;
   case 2: // Update
     break;
   case 3: // Stop
-    
-      
-  if(rectOver == true){
-    stage =2;
-    //print("hi");
-  } else 
-  if(rectOver_2 == true){
-    stage =3;
-  } else   
-  if(rectOver_3 == true){
-    stage=1;
-  } else   
-  if(rectOver_4 == true){
-    stage = 4;
-  } else  
-  if(rectOver_5 == true){
-      selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
 
-  }
-    
+
+    if (rectOver == true) {
+      stage =2;
+      //print("hi");
+    } else 
+    if (rectOver_2 == true) {
+      stage =3;
+    } else   
+    if (rectOver_3 == true) {
+      stage=1;
+    } else   
+    if (rectOver_4 == true) {
+      stage = 4;
+    } else  
+    if (rectOver_5 == true) {
+      selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+    }
+
     break;
   }
 }
