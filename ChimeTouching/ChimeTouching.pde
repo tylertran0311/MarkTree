@@ -121,9 +121,7 @@ void setup() {
   for (int i = 0; i< maxAmount; i++){
     distanceJoint.add((DistanceJoint)box2d.world.createJoint(distanceJointDefs.get(i)));
   }
-  
- display(); 
-  
+  display(); 
 }
 
 void display(){
@@ -134,13 +132,11 @@ void display(){
      chimeVectors.add(box2d.getBodyPixelCoord(chimes.get(i).body));
      boundaryVectors.add(box2d.getBodyPixelCoord(boundaries.get(i).b));
      stroke(0);
-     line(chimeVectors.get(i).x,(chimeVectors.get(i).y - number), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
+     line(chimeVectors.get(i).x,(chimeVectors.get(i).y - chimeHeight), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
       
      chimes.get(i).display();
      boundaries.get(i).display();
     }
-    
-  
 }
 
 void draw(){
