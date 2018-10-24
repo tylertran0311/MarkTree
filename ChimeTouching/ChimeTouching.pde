@@ -51,7 +51,6 @@ Chime c1;
 Box box;
 Spring spring;
 Boundary ground;
-//Spring spring;
 
 void setup() {
   size(1000,800);
@@ -95,8 +94,8 @@ void setup() {
   
   chimes = new ArrayList<Chime>();
   for (int i = 0; i <= maxAmount; i++){
-  chimes.add(new Chime(chimeX,chimeY,chimeWidth,chimeHeight,i));
-  chimeHeight = chimeHeight - number; // I added this
+    chimes.add(new Chime(chimeX,chimeY,chimeWidth,chimeHeight,i));
+    chimeHeight = chimeHeight - number; // I added this
   }
   println(chimes);
   
@@ -108,13 +107,12 @@ void setup() {
     println(distanceJointDefs);
   }
   
-    for(int i = 0; i < maxAmount; i++){
+  for(int i = 0; i < maxAmount; i++){
 
-  distanceJointDefs.get(i).bodyA = chimes.get(i).body;
-  distanceJointDefs.get(i).bodyB = boundaries.get(i).b;
-  
-      
-  distanceJointDefs.get(i).length = box2d.scalarPixelsToWorld(len - number);
+    distanceJointDefs.get(i).bodyA = chimes.get(i).body;
+    distanceJointDefs.get(i).bodyB = boundaries.get(i).b;
+    
+    distanceJointDefs.get(i).length = box2d.scalarPixelsToWorld(len - number);
   }
   println(distanceJointDefs);
   
@@ -151,11 +149,6 @@ void draw(){
   box2d.setGravity(0, -10);
   
   spring.update(mouseX,mouseY);
-  //spring.update(mouseX,mouseY);
-  //for(Pair p: pairs) {
-  //  p.display();
-  //}
-  //p1.display();
   
   display();
   box.display();
@@ -184,15 +177,18 @@ void beginContact(Contact cp) {
   Object o1 = b1.getUserData();
   Object o2 = b2.getUserData();
   
-  //if (o1.getClass() == Chime.class && o2.getClass() == Chime.class) {
-  //  Chime c1 = (Chime) o1;
-  // // println("Chime:" + c1.getID());
-  //  Chime c2 = (Chime) o1;
-  //  //println("Chime:" + c2.getID());
+  if (o1==null || o2==null) {
+     return;
+  }
+  if (o1.getClass() == Chime.class && o2.getClass() == Chime.class) {
+    Chime c1 = (Chime) o1;
+    println("Chime:" + c1.getID());
+    Chime c2 = (Chime) o1;
+    println("Chime:" + c2.getID());
   //} if(o1.getClass() == Box.class && o2.getClass() == Boundary.class) {
   //  Box b = (Box) o1;
   //  //println("HIT");
-  //}
+  }
 }
 
 

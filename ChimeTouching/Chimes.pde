@@ -30,10 +30,7 @@ class Chime {
     FixtureDef fd = new FixtureDef();
     fd.shape = sd;
     
-    // Parameters that affect physics
-    fd.density = 2;
-    fd.friction = 0.3;
-    fd.restitution = 0.5;
+    // Parameters that affect physic
     
     body.createFixture(fd);
 
