@@ -32,13 +32,11 @@ int boundaryWidth;
 int boundaryHeight;
 float multiplier;
 
-//ArrayList<Pair> pairs;
-
 ArrayList<Chime> chimes;
 int chimeX;
 int chimeY;
 int chimeWidth;
-float chimeHeight[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+int chimeHeight;
 int maxAmount=4;
 
 ArrayList<DistanceJointDef> distanceJointDefs;
@@ -46,7 +44,6 @@ ArrayList<DistanceJoint> distanceJoint;
 ArrayList<Vec2> chimeVectors;
 ArrayList<Vec2> boundaryVectors;
 
-//Pair p1;
 Chime c1;
 Box box;
 Spring spring;
@@ -82,23 +79,17 @@ void setup() {
   multiplier = multiplier + 0.1;
   }
   
-  
-  //pairs = new ArrayList<Pair>();
-  
   //CREATING CHIMES
   chimeX = width/4;
   chimeY = height*3/4;
   chimeWidth = 50;
-  chimeHeight[0] = maxAmount*100;
+  chimeHeight = maxAmount*100;
   
   
   chimes = new ArrayList<Chime>();
   for (int i = 0; i <= maxAmount; i++){
-    if(i!=0){
-    chimeHeight[i] = chimeHeight[i] - chimeHeight[i-1]/1.25;
-    }
-    chimes.add(new Chime(chimeX,chimeY,chimeWidth,chimeHeight[i],i));
-   
+    chimes.add(new Chime(chimeX,chimeY,chimeWidth,chimeHeight,i));
+    chimeHeight = chimeHeight - number; // I added this
   }
   println(chimes);
   
@@ -107,7 +98,7 @@ void setup() {
   
   for(int i = 0; i <= maxAmount; i++){
     distanceJointDefs.add(new DistanceJointDef());
-    //println(distanceJointDefs);
+    println(distanceJointDefs);
   }
   
   for(int i = 0; i < maxAmount; i++){
@@ -115,7 +106,7 @@ void setup() {
     distanceJointDefs.get(i).bodyA = chimes.get(i).body;
     distanceJointDefs.get(i).bodyB = boundaries.get(i).b;
     
-    distanceJointDefs.get(i).length = box2d.scalarPixelsToWorld(250);
+    distanceJointDefs.get(i).length = box2d.scalarPixelsToWorld(len - number);
   }
   println(distanceJointDefs);
   
@@ -134,19 +125,9 @@ void display(){
     for (int i = 0; i< maxAmount; i++){
      chimeVectors.add(box2d.getBodyPixelCoord(chimes.get(i).body));
      boundaryVectors.add(box2d.getBodyPixelCoord(boundaries.get(i).b));
-<<<<<<< HEAD
-=======
      stroke(0);
      line(chimeVectors.get(i).x,(chimeVectors.get(i).y - chimes.get(i).getHeight()/2), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
->>>>>>> Fix rope positioning
       
-     stroke(0);
-
-  println(chimeHeight[i]);
-     line(chimeVectors.get(i).x,(chimeVectors.get(i).y - abs(chimeHeight[i]/2)), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
-     
-
-     
      chimes.get(i).display();
      boundaries.get(i).display();
     }
