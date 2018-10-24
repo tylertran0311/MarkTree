@@ -134,6 +134,11 @@ void display(){
     for (int i = 0; i< maxAmount; i++){
      chimeVectors.add(box2d.getBodyPixelCoord(chimes.get(i).body));
      boundaryVectors.add(box2d.getBodyPixelCoord(boundaries.get(i).b));
+<<<<<<< HEAD
+=======
+     stroke(0);
+     line(chimeVectors.get(i).x,(chimeVectors.get(i).y - chimes.get(i).getHeight()/2), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
+>>>>>>> Fix rope positioning
       
      stroke(0);
 
