@@ -9,7 +9,8 @@ void sound(int i) {
   
   if (i == 0) {
     //file
-    String audioFile=filePath + (i+1) + ".wav";
+    String audioFile=filePath +  (i+1) + ".wav";
+   
     SamplePlayer player= new SamplePlayer(ac, SampleManager.sample(audioFile));
     //Audio settings
     //Pitch of the sound
@@ -25,7 +26,7 @@ void sound(int i) {
     in.addInput(player);
 
 
-    //output player
+    ////output player
     Panner p=new Panner(ac, 2);
     beads.Gain g=new beads.Gain (ac, 2, 0.5);
     g.addInput(p);
@@ -33,6 +34,8 @@ void sound(int i) {
     p.addInput(out);
     ac.out.addInput(g);
     ac.start();
+    
+     
   } else
 
     if (i == 1) {

@@ -96,6 +96,7 @@ void setup()
 void soundFilePath(File selection) {
   if (selection != null) {
     filePath = selection.getAbsolutePath();
+    filePath = filePath + "\\";
   } else {
     selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
   }
@@ -282,6 +283,9 @@ void draw()
     {
       text("Press the 'a' key to save the recording to disk and play it back or Press the 'n' key for a new recording", width/15.7, height/6);
     }
+
+   //Interaction();
+    
   }
 
   if (stage==3) {
@@ -321,8 +325,11 @@ void draw()
 }
 
 void mouseClicked() {
-  if (rectOver == true) {
+  if (rectOver == true && filePath != null) {
     stage =2;
+  } else if (filePath == null && rectOver==true) {
+    selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
+    
   }
 
   if (rectOver_2 == true) {
@@ -338,9 +345,13 @@ void mouseClicked() {
   }
 
   if (rectOver_5 == true) {
-    selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+    selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
   }
+  
+ 
 }
+
+
 
 
 void keyPressed() {
@@ -389,91 +400,71 @@ void keyPressed() {
 
 
 
+
+
+
+
+
 void leapOnCircleGesture(CircleGesture g, int state) {
+println("you circle");
 
-
-  println("circle");
-  switch(state) {
-  case 1: // Start
-    break;
-  case 2: // Update
-    break;
-  case 3: // Stop
-
-
-    if (rectOver == true) {
-      stage =2;
-      //print("hi");
-    } else 
-    if (rectOver_2 == true) {
-      stage =3;
-    } else   
-    if (rectOver_3 == true) {
-      stage=1;
-    } else   
-    if (rectOver_4 == true) {
-      stage = 4;
-    } else  
-    if (rectOver_5 == true) {
-      selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
-    }
-
-    break;
-  }
-}
-
-
-
-
-void leapOnKeyTapGesture(KeyTapGesture g) {
-
-  if (handPosition.x >=(xValues[0]-chimeWidth[0]) && handPosition.x <=(xValues[0]+chimeWidth[0]) & handPosition.y >=(yValues[0]-chimeHeight[0]) && handPosition.y <=(yValues[0]+chimeHeight[0]) ) {
-    sound(0);
-  } else if (handPosition.x >=(xValues[1]-chimeWidth[1]) && handPosition.x <=(xValues[1]+chimeWidth[1]) & handPosition.y >=(yValues[1]-chimeHeight[1]) && handPosition.y <=(yValues[1]+chimeHeight[1]) ) {
-    sound(1);
+switch(state){
+case 1:
+  break;
+case 2:
+  break;
+case 3:
+ if (handPosition.x >=(xValues[0]-chimeWidth[0]) && handPosition.x <=(xValues[0]+chimeWidth[0]) & handPosition.y >=(yValues[0]-chimeHeight[0]) && handPosition.y <=(yValues[0]+chimeHeight[0])) {
+    sound(22);
+  } else if (handPosition.x >=(xValues[1]-chimeWidth[1]) && handPosition.x <=(xValues[1]+chimeWidth[1]) & handPosition.y >=(yValues[1]-chimeHeight[1]) && handPosition.y <=(yValues[1]+chimeHeight[1])) {
+    sound(21);
   } else if (handPosition.x >=(xValues[2]-chimeWidth[2]) && handPosition.x <=(xValues[2]+chimeWidth[2]) & handPosition.y >=(yValues[2]-chimeHeight[2]) && handPosition.y <=(yValues[2]+chimeHeight[2]) ) {
-    sound(2);
+    sound(20);
   } else  if (handPosition.x >=(xValues[3]-chimeWidth[3]) && handPosition.x <=(xValues[3]+chimeWidth[3]) & handPosition.y >=(yValues[3]-chimeHeight[3]) && handPosition.y <=(yValues[3]+chimeHeight[3]) ) {
-    sound(3);
+    sound(19);
   } else if (handPosition.x >=(xValues[4]-chimeWidth[4]) && handPosition.x <=(xValues[4]+chimeWidth[4]) & handPosition.y >=(yValues[4]-chimeHeight[4]) && handPosition.y <=(yValues[4]+chimeHeight[4]) ) {
-    sound(4);
-  } else if (handPosition.x >=(xValues[5]-chimeWidth[5]) && handPosition.x <=(xValues[5]+chimeWidth[5]) & handPosition.y >=(yValues[5]-chimeHeight[5]) && handPosition.y <=(yValues[5]+chimeHeight[5]) ) {
-    sound(5);
+    sound(18);
+  } else if (handPosition.x >=(xValues[5]-chimeWidth[5]) && handPosition.x <=(xValues[5]+chimeWidth[5]) & handPosition.y >=(yValues[5]-chimeHeight[5]) && handPosition.y <=(yValues[5]+chimeHeight[5])  ) {
+    sound(17);
   } else if (handPosition.x >=(xValues[6]-chimeWidth[6]) && handPosition.x <=(xValues[6]+chimeWidth[6]) & handPosition.y >=(yValues[6]-chimeHeight[6]) && handPosition.y <=(yValues[6]+chimeHeight[6]) ) {
-    sound(6);
+    sound(16);
   } else if (handPosition.x >=(xValues[7]-chimeWidth[7]) && handPosition.x <=(xValues[7]+chimeWidth[7]) & handPosition.y >=(yValues[7]-chimeHeight[7]) && handPosition.y <=(yValues[7]+chimeHeight[7]) ) {
-    sound(7);
-  } else if (handPosition.x >=(xValues[8]-chimeWidth[8]) && handPosition.x <=(xValues[8]+chimeWidth[8]) & handPosition.y >=(yValues[8]-chimeHeight[8]) && handPosition.y <=(yValues[8]+chimeHeight[8]) ) {
-    sound(8);
+    sound(15);
+  } else if (handPosition.x >=(xValues[8]-chimeWidth[8]) && handPosition.x <=(xValues[8]+chimeWidth[8]) & handPosition.y >=(yValues[8]-chimeHeight[8]) && handPosition.y <=(yValues[8]+chimeHeight[8])) {
+    sound(14);
   } else if (handPosition.x >=(xValues[9]-chimeWidth[9]) && handPosition.x <=(xValues[9]+chimeWidth[9]) & handPosition.y >=(yValues[9]-chimeHeight[9]) && handPosition.y <=(yValues[9]+chimeHeight[9]) ) {
-    sound(9);
+    sound(13);
   } else if (handPosition.x >=(xValues[10]-chimeWidth[10]) && handPosition.x <=(xValues[10]+chimeWidth[10]) & handPosition.y >=(yValues[10]-chimeHeight[10]) && handPosition.y <=(yValues[10]+chimeHeight[10]) ) {
-    sound(10);
+    sound(12);
   } else  if (handPosition.x >=(xValues[11]-chimeWidth[11]) && handPosition.x <=(xValues[11]+chimeWidth[11]) & handPosition.y >=(yValues[11]-chimeHeight[11]) && handPosition.y <=(yValues[11]+chimeHeight[11]) ) {
     sound(11);
-  } else  if (handPosition.x >=(xValues[12]-chimeWidth[12]) && handPosition.x <=(xValues[12]+chimeWidth[12]) & handPosition.y >=(yValues[12]-chimeHeight[12]) && handPosition.y <=(yValues[12]+chimeHeight[12]) ) {
-    sound(12);
-  } else if (handPosition.x >=(xValues[13]-chimeWidth[13]) && handPosition.x <=(xValues[13]+chimeWidth[13]) & handPosition.y >=(yValues[13]-chimeHeight[13]) && handPosition.y <=(yValues[13]+chimeHeight[13]) ) {
-    sound(13);
-  } else if (handPosition.x >=(xValues[14]-chimeWidth[14]) && handPosition.x <=(xValues[14]+chimeWidth[14]) & handPosition.y >=(yValues[14]-chimeHeight[14]) && handPosition.y <=(yValues[14]+chimeHeight[14]) ) {
-    sound(14);
-  } else if (handPosition.x >=(xValues[15]-chimeWidth[15]) && handPosition.x <=(xValues[15]+chimeWidth[15]) & handPosition.y >=(yValues[15]-chimeHeight[15]) && handPosition.y <=(yValues[15]+chimeHeight[15]) ) {
-    sound(15);
-  } else if (handPosition.x >=(xValues[16]-chimeWidth[15]) && handPosition.x <=(xValues[16]+chimeWidth[16]) & handPosition.y >=(yValues[16]-chimeHeight[15]) && handPosition.y <=(yValues[16]+chimeHeight[16]) ) {
-    sound(16);
-  } else if (handPosition.x >=(xValues[17]-chimeWidth[17]) && handPosition.x <=(xValues[17]+chimeWidth[17]) & handPosition.y >=(yValues[17]-chimeHeight[17]) && handPosition.y <=(yValues[17]+chimeHeight[17]) ) {
-    sound(17);
-  } else if (handPosition.x >=(xValues[18]-chimeWidth[18]) && handPosition.x <=(xValues[18]+chimeWidth[18]) & handPosition.y >=(yValues[18]-chimeHeight[18]) && handPosition.y <=(yValues[18]+chimeHeight[18]) ) {
-    sound(18);
-  } else if (handPosition.x >=(xValues[19]-chimeWidth[19]) && handPosition.x <=(xValues[19]+chimeWidth[19]) & handPosition.y >=(yValues[19]-chimeHeight[19]) && handPosition.y <=(yValues[19]+chimeHeight[19]) ) {
-    sound(19);
-  } else if (handPosition.x >=(xValues[20]-chimeWidth[20]) && handPosition.x <=(xValues[20]+chimeWidth[20]) & handPosition.y >=(yValues[20]-chimeHeight[20]) && handPosition.y <=(yValues[20]+chimeHeight[20]) ) {
-    sound(20);
-  } else if (handPosition.x >=(xValues[21]-chimeWidth[21]) && handPosition.x <=(xValues[21]+chimeWidth[21]) & handPosition.y >=(yValues[21]-chimeHeight[21]) && handPosition.y <=(yValues[21]+chimeHeight[21]) ) {
-    sound(21);
-  } else if (handPosition.x >=(xValues[22]-chimeWidth[22]) && handPosition.x <=(xValues[22]+chimeWidth[22]) & handPosition.y >=(yValues[22]-chimeHeight[22]) && handPosition.y <=(yValues[22]+chimeHeight[22]) ) {
-    sound(22);
+  } else  if (handPosition.x >=(xValues[12]-chimeWidth[12]) && handPosition.x <=(xValues[12]+chimeWidth[12]) & handPosition.y >=(yValues[12]-chimeHeight[12]) && handPosition.y <=(yValues[12]+chimeHeight[12])) {
+    sound(10);
+  } else if (handPosition.x >=(xValues[13]-chimeWidth[13]) && handPosition.x <=(xValues[13]+chimeWidth[13]) & handPosition.y >=(yValues[13]-chimeHeight[13]) && handPosition.y <=(yValues[13]+chimeHeight[13])) {
+    sound(9);
+  } else if (handPosition.x >=(xValues[14]-chimeWidth[14]) && handPosition.x <=(xValues[14]+chimeWidth[14]) & handPosition.y >=(yValues[14]-chimeHeight[14]) && handPosition.y <=(yValues[14]+chimeHeight[14])) {
+    sound(8);
+  } else if (handPosition.x >=(xValues[15]-chimeWidth[15]) && handPosition.x <=(xValues[15]+chimeWidth[15]) & handPosition.y >=(yValues[15]-chimeHeight[15]) && handPosition.y <=(yValues[15]+chimeHeight[15])) {
+    sound(7);
+  } else if (handPosition.x >=(xValues[16]-chimeWidth[15]) && handPosition.x <=(xValues[16]+chimeWidth[16]) & handPosition.y >=(yValues[16]-chimeHeight[15]) && handPosition.y <=(yValues[16]+chimeHeight[16])) {
+    sound(6);
+  } else if (handPosition.x >=(xValues[17]-chimeWidth[17]) && handPosition.x <=(xValues[17]+chimeWidth[17]) & handPosition.y >=(yValues[17]-chimeHeight[17]) && handPosition.y <=(yValues[17]+chimeHeight[17])) {
+    sound(5);
+  } else if (handPosition.x >=(xValues[18]-chimeWidth[18]) && handPosition.x <=(xValues[18]+chimeWidth[18]) & handPosition.y >=(yValues[18]-chimeHeight[18]) && handPosition.y <=(yValues[18]+chimeHeight[18])) {
+    sound(4);
+  } else if (handPosition.x >=(xValues[19]-chimeWidth[19]) && handPosition.x <=(xValues[19]+chimeWidth[19]) & handPosition.y >=(yValues[19]-chimeHeight[19]) && handPosition.y <=(yValues[19]+chimeHeight[19])) {
+    sound(3);
+  } else if (handPosition.x >=(xValues[20]-chimeWidth[20]) && handPosition.x <=(xValues[20]+chimeWidth[20]) & handPosition.y >=(yValues[20]-chimeHeight[20]) && handPosition.y <=(yValues[20]+chimeHeight[20])) {
+    sound(2);
+  } else if (handPosition.x >=(xValues[21]-chimeWidth[21]) && handPosition.x <=(xValues[21]+chimeWidth[21]) & handPosition.y >=(yValues[21]-chimeHeight[21]) && handPosition.y <=(yValues[21]+chimeHeight[21])) {
+    sound(1);
+  } else if (handPosition.x >=(xValues[22]-chimeWidth[22]) && handPosition.x <=(xValues[22]+chimeWidth[22]) & handPosition.y >=(yValues[22]-chimeHeight[22]) && handPosition.y <=(yValues[22]+chimeHeight[22])) {
+    sound(0);
   }
+  break;
+}
+
+ 
 }
 
 void leapOnSwipeGesture(SwipeGesture g, int state) {
