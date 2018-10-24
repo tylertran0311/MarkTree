@@ -53,4 +53,8 @@ class Chime {
   int getID(){
     return id;
   }
+  
+  float getHeight(){
+    return h;
+  }
 }
