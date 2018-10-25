@@ -75,11 +75,10 @@ void draw()
 
 
   float m=0.5; //change this to move chimes across the width of the screen
-  float n=5;
+  float n=5.25;
   float d=0;
   float b=height/14;
   float c=width/6;
-  float chimeY=height*400/1080;
 
 
 
@@ -94,22 +93,22 @@ void draw()
   {
     //strokeWeight();
     stroke(0);
-    line (b+d, c, b+d, displayHeight*c*1.30/1080); //string connecting to chime    
-    d=d+100; //the number value here changes the width between the strings
+    line (b+d, c, b+d, c*1.30); //string connecting to chime    
+    d=d+displayWidth*100/1920; //the number value here changes the width between the strings
 
 
     fill(192, 192, 192);
     noStroke();
-    rect (displayWidth*x/1920*m, chimeY, displayWidth*x/2/1920, displayHeight*n*x/1080); //chimes    
+    rect (displayWidth*x/1920*m, height*10/27, displayWidth*x/2/1920, displayHeight*n*x/1080); //chimes    
 
     xValues[i] = displayWidth*x/1920*m;    
-    yValues[i] = 4*displayHeight*x/1080;
+    yValues[i] = height*10/27;
 
     chimeWidth[i] = displayWidth*x/2/1920;
     chimeHeight[i] = displayHeight*n*x/1080;
 
     m++;
-    n=n-displayHeight*0.2/1080;
+    n=n-0.2;
     chimeNumber[i] = i;
   }
 
