@@ -64,8 +64,8 @@ color white, black, buttonColor, buttonHighlight;
 
 void setup()
 {
-  //fullScreen();
-  size(1920, 1080); // use this if your screen is not 1080p
+  fullScreen();
+  //size(1920, 1080); // use this if your screen is not 1080p
   background(255);
   startButtonX = width/2 - 300;
   startButtonY = height/2;
@@ -221,7 +221,7 @@ void draw()
     text("BACK", buttonWidth/2, buttonHeight/2);
 
     float m=0.5; //change this to move chimes across the width of the screen
-    float n=4;
+    float n=5.25;
     float d=0;
     float b=height/14;
     float c=width/6;
@@ -231,7 +231,7 @@ void draw()
     strokeWeight(3);
     stroke(0);
     fill(150, 111, 51);
-    rect (20, height/4, maxAmount*x, x/2); // wooden bar rectangle
+  rect (displayWidth*20/1080, height/4, maxAmount*displayWidth*x/1920, displayHeight*50/1080); // wooden bar rectangle
 
 
 
@@ -240,18 +240,18 @@ void draw()
       //strokeWeight();
       stroke(0);
       line (b+d, c, b+d, c*1.30); //string connecting to chime    
-      d=d+100; //the number value here changes the width between the strings
+    d=d+displayWidth*100/1920; //the number value here changes the width between the strings
 
 
       fill(192, 192, 192);
       noStroke();
-      rect (x*m, 4*x, x/2, n*x); //chimes    
+    rect (displayWidth*x/1920*m, height*10/27, displayWidth*x/2/1920, displayHeight*n*x/1080); //chimes    
 
-      xValues[i] = x*m;    
-      yValues[i] = 4*x;
+      xValues[i] = displayWidth*x/1920*m;    
+      yValues[i] = height*10/27;
 
-      chimeWidth[i] = x/2;
-      chimeHeight[i] = n*x;
+      chimeWidth[i] = displayWidth*x/2/1920;
+      chimeHeight[i] =  displayHeight*n*x/1080;
 
       m++;
       n=n-0.2;
@@ -271,7 +271,7 @@ void draw()
 
     textSize(32);
     fill(0);
-    text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/4.10, height/1.20);
+    text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/5, height/1.10);
 
     if ( recorder.isRecording() )
     {
