@@ -58,12 +58,11 @@ void setup() {
   box2d.listenForCollisions();
   
   box = new Box(width/2,height/2);
-  //p1 = new Pair(width/4,height*3/4);
   ground = new Boundary(width/2, height, width, 40);
   box2d.listenForCollisions();
   
   spring = new Spring();
-  //selectFolder("Please select the folder which contains the chime sounds:", "soundFilePath");
+  selectFolder("Please select the folder which contains the chime sounds:", "soundFilePath");
   
   //CREATING BOUNDARIES
   boundaries = new ArrayList<Boundary>();
@@ -170,21 +169,20 @@ void beginContact(Contact cp) {
   if (o1==null || o2==null) {
      return;
   }
+  
   if (o1.getClass() == Chime.class && o2.getClass() == Chime.class) {
     Chime c1 = (Chime) o1;
+    sound(c1.getID());
     println("Chime:" + c1.getID());
     Chime c2 = (Chime) o1;
     println("Chime:" + c2.getID());
-  //} if(o1.getClass() == Box.class && o2.getClass() == Boundary.class) {
-  //  Box b = (Box) o1;
-  //  //println("HIT");
   }
 }
 
 
-//void soundFilePath(File selection) {
-//  filePath = selection.getAbsolutePath();
-//}
+void soundFilePath(File selection) {
+  filePath = selection.getAbsolutePath();
+}
 
 void endContact(Contact cp) {
 }
