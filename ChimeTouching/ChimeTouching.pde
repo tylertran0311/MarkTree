@@ -21,6 +21,8 @@ import org.jbox2d.collision.Manifold;
 import org.jbox2d.dynamics.contacts.Contact;
 Box2DProcessing box2d;
 
+AudioContext ac;
+
 int len = 300;
 int number = 50;
 int number_2 = 200;
@@ -50,9 +52,11 @@ Spring spring;
 Boundary ground;
 
 void setup() {
+  //fullScreen();
   size(1000,800);
   smooth();
-  
+  ac = new AudioContext();
+
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
   box2d.listenForCollisions();
@@ -144,9 +148,7 @@ void draw(){
   ground.display();
 }
 
-void mouseReleased() {
-  spring.destroy();
-}
+
 
 void mousePressed() {
   // Check to see if the mouse was clicked on the box
@@ -172,16 +174,27 @@ void beginContact(Contact cp) {
   
   if (o1.getClass() == Chime.class && o2.getClass() == Chime.class) {
     Chime c1 = (Chime) o1;
+    if(filePath!=null){
     sound(c1.getID());
-    println("Chime:" + c1.getID());
-    Chime c2 = (Chime) o1;
-    println("Chime:" + c2.getID());
+    }
+    //println("Chime:" + c1.getID());
+    Chime c2 = (Chime) o2;
+   if(filePath!=null){
+    sound(c2.getID());
+   }
+   
+    //println("Chime:" + c2.getID());
   }
 }
 
 
 void soundFilePath(File selection) {
-  filePath = selection.getAbsolutePath();
+  if (selection != null) {
+    filePath = selection.getAbsolutePath();
+    filePath = filePath + "\\";
+  } else {
+    selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+  }
 }
 
 void endContact(Contact cp) {

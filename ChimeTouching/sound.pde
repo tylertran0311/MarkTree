@@ -1,7 +1,7 @@
 Minim minim_2 = new Minim(this);
 AudioPlayer player_2;
 AudioInput input;
-AudioContext ac;
+
 
 String filePath;
 
