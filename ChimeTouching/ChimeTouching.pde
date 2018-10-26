@@ -52,8 +52,8 @@ Spring spring;
 Boundary ground;
 
 void setup() {
-  //fullScreen();
-  size(1000,800);
+  fullScreen();
+  //size(1000,800);
   smooth();
   ac = new AudioContext();
 
@@ -62,7 +62,6 @@ void setup() {
   box2d.listenForCollisions();
   
   box = new Box(width/2,height/2);
-  ground = new Boundary(width/2, height, width, 40);
   box2d.listenForCollisions();
   
   spring = new Spring();
@@ -81,6 +80,11 @@ void setup() {
   boundaries.add(new Boundary(boundaryX*multiplier, boundaryY, boundaryWidth, boundaryHeight));
   multiplier = multiplier + 0.1;
   }
+  
+  boundaries.add(new Boundary(width/2,height,width,10));
+  boundaries.add(new Boundary(width/2,0,width,10));
+  boundaries.add(new Boundary(width,height/2,10,height));
+  boundaries.add(new Boundary(0,height/2,10,height));
   
   //CREATING CHIMES
   chimeX = width/4;
@@ -145,7 +149,6 @@ void draw(){
   
   display();
   box.display();
-  ground.display();
 }
 
 
