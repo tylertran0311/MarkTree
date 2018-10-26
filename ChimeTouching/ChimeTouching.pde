@@ -24,7 +24,7 @@ Box2DProcessing box2d;
 AudioContext ac;
 
 int len = 300;
-int number = 50;
+int number = 30;
 int number_2 = 200;
 
 ArrayList<Boundary> boundaries;
@@ -39,7 +39,7 @@ int chimeX;
 int chimeY;
 int chimeWidth;
 int chimeHeight;
-int maxAmount=4;
+int maxAmount=10;
 
 ArrayList<DistanceJointDef> distanceJointDefs;
 ArrayList<DistanceJoint> distanceJoint;
@@ -70,7 +70,7 @@ void setup() {
   //CREATING BOUNDARIES
   boundaries = new ArrayList<Boundary>();
   
-  multiplier = 0.2;
+  multiplier = 0.05;
   boundaryX = width;
   boundaryY = 0;
   boundaryWidth = 20;
@@ -90,7 +90,7 @@ void setup() {
   chimeX = width/4;
   chimeY = height*3/4;
   chimeWidth = 50;
-  chimeHeight = maxAmount*100;
+  chimeHeight = maxAmount*50;
   
   
   chimes = new ArrayList<Chime>();
