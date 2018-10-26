@@ -271,7 +271,7 @@ void draw()
 
     textSize(32);
     fill(0);
-    text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/5, height/1.10);
+    text("Press 's' to turn swipe mode on or off, Swipe Mode is: " + swipeIs, width/2, height/1.10);
 
     if ( recorder.isRecording() )
     {
