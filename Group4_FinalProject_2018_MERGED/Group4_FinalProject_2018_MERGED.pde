@@ -16,6 +16,8 @@ import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;
 import org.jbox2d.dynamics.contacts.Contact;
 
+import javax.swing.*; 
+
 Box2DProcessing box2d;
 Chime c1;
 Box box;
@@ -92,7 +94,7 @@ int BARH=50;
 int RECORDX=750;
 int Y=500;
 int PLAYX=750+150;
-int maxAmount = 10; // defines the amount of chimes (can have more chimes that appear offscreen though
+int maxAmount; // defines the amount of chimes (can have more chimes that appear offscreen though
 int chimeNumber[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 
 
@@ -103,6 +105,16 @@ color white, black, buttonColor, buttonHighlight;
 
 void setup()
 {
+  try { 
+    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+  } 
+  catch (Exception e) { 
+    e.printStackTrace();
+  } 
+  String preset="10";
+  String op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes", preset);
+  if (op1s != null) maxAmount=Integer.parseInt(op1s);
+
   fullScreen();
   //size(1920, 1080); // use this if your screen is not 1080p
   background(255);
@@ -456,7 +468,11 @@ void mouseClicked() {
 
 
 void keyPressed() {
-  background(255);
+  //background(255);
+
+  if (key=='1') {
+    maxAmount=key;
+  }
   if (key=='s') {
     if (swipeOnorOff == false) {
       swipeOnorOff = true;
