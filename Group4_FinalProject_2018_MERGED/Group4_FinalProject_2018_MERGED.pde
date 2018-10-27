@@ -458,12 +458,13 @@ void draw()
 
 
     text("Instructions:", width/2, height/4);
-    text("1.Select the folder which contains the sound files for the individual chimes (called Final Clips WAV)", width/2, height/3.3);
-    text("2.Click Open to choose the folder", width/2, height/2.85);
-    text("3.Ensure your volume is low!!!", width/2, height/2.5);
-    text("4.Click Start", width/2, height/2.2);
-    text("5.Plug in the Leap Motion", width/2, height/2);
-    text("6.Use the Leap Motion to interact with the virtual mark tree and have fun!", width/2, height/1.80);
+    text("1. Select the amount of chimes to be displayed on screen (greater than 10 looks odd, unless you have a wide screen)", width/2, height/3.3);
+    text("2.Select the folder which contains the sound files for the individual chimes (called Final Clips WAV)", width/2, height/2.8);
+    text("3.Click Open to choose the folder", width/2, height/2.5);
+    text("4.Ensure your volume is low!!!", width/2, height/2.2);
+    text("5.Click Start", width/2, height/2);
+    text("6.Plug in the Leap Motion", width/2, height/1.8);
+    text("7.Use the Leap Motion to interact with the virtual mark tree and have fun!", width/2, height/1.6);
   }
 }
 
