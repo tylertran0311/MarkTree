@@ -419,6 +419,15 @@ println(frameRate);
     fill(0);
     textAlign(CENTER, CENTER);
     text("BACK", buttonWidth/2, buttonHeight/2);
+    
+    
+    text("Instructions:", width/2, height/4);
+    text("1.Select the folder which contains the sound files for the individual chimes (called Final Clips WAV)", width/2, height/3.3);
+    text("2.Click Open to choose the folder", width/2, height/2.85);
+    text("3.Ensure your volume is low!!!",width/2,height/2.5);
+    text("4.Click Start",width/2,height/2.2);
+    text("5.Plug in the Leap Motion",width/2,height/2);
+    text("6.Use the Leap Motion to interact with the virtual mark tree and have fun!",width/2,height/1.80);
   }
 }
 
