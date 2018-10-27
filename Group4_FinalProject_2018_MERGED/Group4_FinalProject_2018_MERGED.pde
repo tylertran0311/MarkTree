@@ -32,6 +32,8 @@ AudioOutput out;
 FilePlayer player;
 
 int stage = 1;
+String maxamounts[] = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"};
+String input_2;
 int buttonWidth = width*2;
 int buttonHeight = height*2;
 int startButtonX;
@@ -94,7 +96,7 @@ int BARH=50;
 int RECORDX=750;
 int Y=500;
 int PLAYX=750+150;
-int maxAmount; // defines the amount of chimes (can have more chimes that appear offscreen though
+int maxAmount=10; // defines the amount of chimes (can have more chimes that appear offscreen though
 int chimeNumber[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
 
 
@@ -111,17 +113,34 @@ void setup()
   catch (Exception e) { 
     e.printStackTrace();
   } 
-  String preset="10";
-  String op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes, less than 10", preset);
-  if (op1s != null) { 
-    maxAmount=Integer.parseInt(op1s);
+  //String preset="10";
+  if(input_2 == null){
+   JFrame frame = new JFrame("Number of Chimes");
+   input_2 = (String) JOptionPane.showInputDialog(frame, 
+        "Number of Chimes",
+        "Choose the Number of Chimes",
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        maxamounts, maxamounts[0]);
+        
+
   }
+         if(input_2 !=null){
+          maxAmount = Integer.parseInt(input_2);
+         }
+    
+
+    // favoritePizza will be null if the user clicks Cancel
+    
+  //if (op1s != null) { 
+  //  maxAmount=Integer.parseInt(op1s);
+  //}
   
   
-  if (op1s == null || maxAmount > 10) {
-    op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes, less than 10", preset);
-    maxAmount = Integer.parseInt(op1s);
-  }
+  //if (op1s == null || maxAmount > 10) {
+  //  op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes, less than 10", preset);
+  //  maxAmount = Integer.parseInt(op1s);
+  //}
 
   fullScreen();
   //size(1920, 1080); // use this if your screen is not 1080p
