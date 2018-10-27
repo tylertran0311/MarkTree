@@ -112,8 +112,16 @@ void setup()
     e.printStackTrace();
   } 
   String preset="10";
-  String op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes", preset);
-  if (op1s != null) maxAmount=Integer.parseInt(op1s);
+  String op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes, less than 10", preset);
+  if (op1s != null) { 
+    maxAmount=Integer.parseInt(op1s);
+  }
+  
+  
+  if (op1s == null || maxAmount > 10) {
+    op1s = JOptionPane.showInputDialog(frame, "Select Number of Chimes, less than 10", preset);
+    maxAmount = Integer.parseInt(op1s);
+  }
 
   fullScreen();
   //size(1920, 1080); // use this if your screen is not 1080p
@@ -468,11 +476,9 @@ void mouseClicked() {
 
 
 void keyPressed() {
-  //background(255);
+  background(255);
 
-  if (key=='1') {
-    maxAmount=key;
-  }
+
   if (key=='s') {
     if (swipeOnorOff == false) {
       swipeOnorOff = true;
