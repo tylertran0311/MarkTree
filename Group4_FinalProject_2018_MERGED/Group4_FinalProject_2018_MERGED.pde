@@ -401,7 +401,8 @@ println(frameRate);
     text("BACK", buttonWidth/2, buttonHeight/2);
     fill(0);
     textAlign(CENTER, CENTER);
-    text("Interactive virtual Mark Tree Created in Processing by Kian Southgate © 2018", width/2, height/2);
+    text("Interactive virtual Mark Tree Created in Processing by Kian Southgate, Fucheng Guo, Diep Quang Anh Tran,", width/2, height/2);
+    text("Samuel Li, Qianchen Li and Jianfeng Wu © 2018", width/2, height/1.80);
   }
 
   if (stage == 4) {
