@@ -136,7 +136,7 @@ void setup()
   box2d.listenForCollisions();
   
   
-  selectFolder("Please select the folder which contains the chime sounds:", "soundFilePath");
+  selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
   
   //CREATING BOUNDARIES
   boundaries = new ArrayList<Boundary>();
@@ -219,7 +219,7 @@ void soundFilePath(File selection) {
     filePath = selection.getAbsolutePath();
     filePath = filePath + "\\";
   } else {
-    selectFolder("Please Select Your Folder That Contain The Chime Sounds:", "soundFilePath");
+    selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
   }
 }
 
