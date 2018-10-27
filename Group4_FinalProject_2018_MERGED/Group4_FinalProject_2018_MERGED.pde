@@ -128,90 +128,90 @@ void setup()
 
   ac = new AudioContext();
 
- box2d = new Box2DProcessing(this);
+  box2d = new Box2DProcessing(this);
   box2d.createWorld();
   box2d.listenForCollisions();
-  
+
 
   box2d.listenForCollisions();
-  
-  
+
+
   selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
-  
+
   //CREATING BOUNDARIES
   boundaries = new ArrayList<Boundary>();
-  
+
   multiplier = 0.05;
   boundaryX = width;
   boundaryY = displayHeight*65/1080;
   boundaryWidth = 20;
   boundaryHeight = 20;
-  
-  for (int i = 0; i <= maxAmount; i++){
-  boundaries.add(new Boundary(boundaryX*multiplier, boundaryY, boundaryWidth, boundaryHeight));
-  multiplier = multiplier + 0.1;
+
+  for (int i = 0; i <= maxAmount; i++) {
+    boundaries.add(new Boundary(boundaryX*multiplier, boundaryY, boundaryWidth, boundaryHeight));
+    multiplier = multiplier + 0.1;
   }
-  
-  
-  
-  boundaries.add(new Boundary(width/2,height,width,10));
-  boundaries.add(new Boundary(width/2,displayHeight*70/1080,width,10));
-  boundaries.add(new Boundary(width,height/2,10,height));
-  boundaries.add(new Boundary(0,height/2,10,height));
-  
+
+
+
+  boundaries.add(new Boundary(width/2, height, width, 10));
+  boundaries.add(new Boundary(width/2, displayHeight*70/1080, width, 10));
+  boundaries.add(new Boundary(width, height/2, 10, height));
+  boundaries.add(new Boundary(0, height/2, 10, height));
+
   //CREATING CHIMES
   chimeX = width/4;
   chimeY = height*3/4;
   chimeWidth = 50;
   chimeHeight = maxAmount*50;
-  
-  
+
+
   chimes = new ArrayList<Chime>();
-  for (int i = 0; i <= maxAmount; i++){
-    chimes.add(new Chime(chimeX,chimeY,chimeWidth,chimeHeight,i));
+  for (int i = 0; i <= maxAmount; i++) {
+    chimes.add(new Chime(chimeX, chimeY, chimeWidth, chimeHeight, i));
     chimeHeight = chimeHeight - number; // I added this
   }
   println(chimes);
-  
+
   //DISTANCE JOINT DEFS
   distanceJointDefs = new ArrayList<DistanceJointDef>();
-  
-  for(int i = 0; i <= maxAmount; i++){
+
+  for (int i = 0; i <= maxAmount; i++) {
     distanceJointDefs.add(new DistanceJointDef());
     println(distanceJointDefs);
   }
-  
-  for(int i = 0; i < maxAmount; i++){
+
+  for (int i = 0; i < maxAmount; i++) {
 
     distanceJointDefs.get(i).bodyA = chimes.get(i).body;
     distanceJointDefs.get(i).bodyB = boundaries.get(i).b;
-    
+
     distanceJointDefs.get(i).length = box2d.scalarPixelsToWorld(len - number);
   }
   //println(distanceJointDefs);
-  
+
   //DISTANCE JOINT
   distanceJoint = new ArrayList<DistanceJoint>();
-  for (int i = 0; i< maxAmount; i++){
+  for (int i = 0; i< maxAmount; i++) {
     distanceJoint.add((DistanceJoint)box2d.world.createJoint(distanceJointDefs.get(i)));
   }
-  //display(); 
+  //display();
 }
 
-void display(){
- 
+void display() {
+
   chimeVectors = new ArrayList<Vec2>();
   boundaryVectors = new ArrayList<Vec2>();
-  
-    for (int i = 0; i< maxAmount; i++){
-     chimeVectors.add(box2d.getBodyPixelCoord(chimes.get(i).body));
-     boundaryVectors.add(box2d.getBodyPixelCoord(boundaries.get(i).b));
-     stroke(0);
-     line(chimeVectors.get(i).x,(chimeVectors.get(i).y - chimes.get(i).getHeight()/2), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
-      
-     chimes.get(i).display();
-     boundaries.get(i).display();
-    }
+
+  for (int i = 0; i< maxAmount; i++) {
+    chimeVectors.add(box2d.getBodyPixelCoord(chimes.get(i).body));
+    boundaryVectors.add(box2d.getBodyPixelCoord(boundaries.get(i).b));
+    stroke(0);
+    line(chimeVectors.get(i).x, (chimeVectors.get(i).y - chimes.get(i).getHeight()/2), boundaryVectors.get(i).x, boundaryVectors.get(i).y); //the number has issues here
+
+    chimes.get(i).display();
+    boundaries.get(i).display();
+  }
 }
 
 void soundFilePath(File selection) {
@@ -253,7 +253,7 @@ void draw()
     rectOver_3 = false;
   }
 
-  if (handPosition.x >= (instructionsButtonX - buttonWidth) & handPosition.x <=(instructionsButtonX+ buttonWidth) & handPosition.y >=(instructionsButtonY-buttonHeight) & handPosition.y <=(instructionsButtonY+buttonHeight) ||
+  if (
     mouseX >= (instructionsButtonX - buttonWidth)  & mouseX <= (instructionsButtonX + buttonWidth) & mouseY >=(instructionsButtonY-buttonHeight) & mouseY <=(instructionsButtonY+buttonHeight)
     ) {
     rectOver_4 = true;
@@ -328,7 +328,7 @@ void draw()
   if (stage==2) {
 
     background(255);
-println(frameRate);
+    println(frameRate);
     rectMode(CORNER);
     if (rectOver_3) {
 
@@ -347,7 +347,7 @@ println(frameRate);
     strokeWeight(3);
     stroke(0);
     fill(150, 111, 51);
-  rect (5, 10, width-10, displayHeight*60/1080); // wooden bar rectangle
+    rect (5, 10, width-10, displayHeight*60/1080); // wooden bar rectangle
 
 
 
@@ -366,23 +366,20 @@ println(frameRate);
       text("Press the 'a' key to save the recording to disk and play it back or Press the 'n' key for a new recording", width/2, height/1.25);
     }
 
-   //Interaction();
-     box2d.step();
-  box2d.setGravity(0, -10);
-  
-  
-  display();
-  
-  
-   if (leap.getHands().size()>0) { //if more than 1 hand
+    //Interaction();
+    box2d.step();
+    box2d.setGravity(0, -10);
+
+
+    display();
+
+
+    if (leap.getHands().size()>0) { //if more than 1 hand
       handPosition=leap.getHands().get(0).getStabilizedPosition();
     }//get hand position
     //spring.update(handPosition.x,handPosition.y);
     box = new Box(handPosition.x, handPosition.y);
     box.display();
-    
-     
-
   }
 
   if (stage==3) {
@@ -419,15 +416,15 @@ println(frameRate);
     fill(0);
     textAlign(CENTER, CENTER);
     text("BACK", buttonWidth/2, buttonHeight/2);
-    
-    
+
+
     text("Instructions:", width/2, height/4);
     text("1.Select the folder which contains the sound files for the individual chimes (called Final Clips WAV)", width/2, height/3.3);
     text("2.Click Open to choose the folder", width/2, height/2.85);
-    text("3.Ensure your volume is low!!!",width/2,height/2.5);
-    text("4.Click Start",width/2,height/2.2);
-    text("5.Plug in the Leap Motion",width/2,height/2);
-    text("6.Use the Leap Motion to interact with the virtual mark tree and have fun!",width/2,height/1.80);
+    text("3.Ensure your volume is low!!!", width/2, height/2.5);
+    text("4.Click Start", width/2, height/2.2);
+    text("5.Plug in the Leap Motion", width/2, height/2);
+    text("6.Use the Leap Motion to interact with the virtual mark tree and have fun!", width/2, height/1.80);
   }
 }
 
@@ -436,7 +433,6 @@ void mouseClicked() {
     stage =2;
   } else if (filePath == null && rectOver==true) {
     selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
-    
   }
 
   if (rectOver_2 == true) {
@@ -454,8 +450,6 @@ void mouseClicked() {
   if (rectOver_5 == true) {
     selectFolder("Please Select Your Folder That Contain The Chime Sounds and Then Press Start", "soundFilePath");
   }
-  
- 
 }
 
 
@@ -528,28 +522,28 @@ void leapOnSwipeGesture(SwipeGesture g, int state) {
 void beginContact(Contact cp) {
   Fixture f1 = cp.getFixtureA();
   Fixture f2 = cp.getFixtureB();
-  
+
   Body b1 = f1.getBody();
   Body b2 = f2. getBody();
-  
+
   Object o1 = b1.getUserData();
   Object o2 = b2.getUserData();
-  
+
   if (o1==null || o2==null) {
-     return;
+    return;
   }
-  
+
   if (o1.getClass() == Chime.class && o2.getClass() == Chime.class) {
     Chime c1 = (Chime) o1;
-    if(filePath!=null){
-    sound(c1.getID());
+    if (filePath!=null) {
+      sound(c1.getID());
     }
     //println("Chime:" + c1.getID());
     Chime c2 = (Chime) o2;
-   if(filePath!=null){
-    sound(c2.getID());
-   }
-   
+    if (filePath!=null) {
+      sound(c2.getID());
+    }
+
     //println("Chime:" + c2.getID());
   }
 }
