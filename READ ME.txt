@@ -13,9 +13,10 @@ Libaries to install:
 Please watch the video to learn how to use the application in further depth :)
 
 Instructions:
-1.Select the folder which contains the sound files for the individual chimes (called Final Clips WAV)
-2.Click Open to choose the folder
-3.Ensure your volume is low!!!
-4.Click Start
-5.Plug in the Leap Motion
-6.Use the Leap Motion to interact with the virtual mark tree and have fun! (the chimes will play a sound each time they collide with each other or you can swipe to create a glissando effect)
+1. Select the amount of chimes to be displayed on screen (greater than 10 looks odd, unless you have a wide screen)
+2. Select the folder which contains the sound files for the individual chimes (called Final Clips WAV)
+3. Click Open to choose the folder
+4. Ensure your volume is low!!!
+5. Click Start
+6. Plug in the Leap Motion
+7. Use the Leap Motion to interact with the virtual mark tree and have fun! (the chimes will play a sound each time they collide with each other or you can swipe to create a glissando effect)
